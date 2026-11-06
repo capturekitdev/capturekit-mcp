@@ -1,0 +1,84 @@
+{
+  "$schema": "https://raw.githubusercontent.com/modelcontextprotocol/mcpb/main/schemas/mcpb-manifest-v0.4.schema.json",
+  "manifest_version": "0.4",
+  "name": "capturekit-mcp",
+  "display_name": "CaptureKit",
+  "version": "0.1.0",
+  "description": "CaptureKit screenshot API for Claude.",
+  "long_description": "Capture websites as PNG, JPEG, WebP or PDF, extract their content, or analyse them with AI.",
+  "author": {
+    "name": "CaptureKit",
+    "email": "contact@capturekit.dev",
+    "url": "https://www.capturekit.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/capturekitdev/capturekit-mcp"
+  },
+  "homepage": "https://www.capturekit.dev",
+  "documentation": "https://github.com/capturekitdev/capturekit-mcp#readme",
+  "support": "mailto:contact@capturekit.dev",
+  "icon": "icon.png",
+  "server": {
+    "type": "node",
+    "entry_point": "server/dist/stdio.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/dist/stdio.js"],
+      "env": {
+        "CAPTUREKIT_API_KEY": "${user_config.CAPTUREKIT_API_KEY}"
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "analyze",
+      "description": "AI Content API analyzes any webpage and returns AI insights summary, value proposition, features, categories, use cases, and optional contact signals."
+    },
+    {
+      "name": "capture",
+      "description": "Browser-like Screenshot API that captures webpages as PNG/JPEG/WebP or PDF for previews, QA, reporting, monitoring, and archiving no headless setup."
+    },
+    {
+      "name": "content",
+      "description": "CaptureKit Content API extracts structured webpage data, metadata, links, HTML/Markdown: in one request for SEO, monitoring, indexing and automation."
+    },
+    {
+      "name": "stats",
+      "description": "Infrastructure health for an engine or endpoint over the last hour. Not scoped to your account or tenant. Enabled per account: HTTP 403 means contact support to activate it."
+    },
+    {
+      "name": "usage",
+      "description": "Retrieve real-time usage statistics and credit balance for your CaptureKit account."
+    },
+    {
+      "name": "website_crawler",
+      "description": "Website Crawler API fetches raw HTML from any webpage in request mode (no rendering) for fast scraping, audits, monitoring, and link/metadata extraction."
+    }
+  ],
+  "tools_generated": false,
+  "keywords": [
+    "mcp",
+    "capturekit",
+    "screenshot-api",
+    "website-screenshot",
+    "url-to-pdf",
+    "web-content"
+  ],
+  "license": "MIT",
+  "compatibility": {
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": {
+      "node": ">=20"
+    }
+  },
+  "user_config": {
+    "CAPTUREKIT_API_KEY": {
+      "type": "string",
+      "title": "CaptureKit API key",
+      "description": "Your API key from https://app.capturekit.dev.",
+      "required": true,
+      "sensitive": true
+    }
+  }
+}
