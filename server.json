@@ -1,0 +1,44 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "dev.capturekit/mcp",
+  "title": "CaptureKit",
+  "description": "Capture websites as PNG, JPEG, WebP or PDF, extract their content, or analyse them with AI.",
+  "version": "0.1.0",
+  "websiteUrl": "https://www.capturekit.dev",
+  "repository": {
+    "url": "https://github.com/capturekitdev/capturekit-mcp",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@capturekitdev/mcp",
+      "version": "0.1.0",
+      "environmentVariables": [
+        {
+          "name": "CAPTUREKIT_API_KEY",
+          "description": "CaptureKit API key.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ],
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.capturekit.dev/",
+      "headers": [
+        {
+          "name": "x-api-key",
+          "description": "CaptureKit API key.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}

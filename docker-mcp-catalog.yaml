@@ -1,0 +1,28 @@
+name: capturekit
+image: mcp/capturekit
+type: server
+meta:
+  category: web
+  tags:
+    - capturekit
+    - screenshot-api
+    - website-screenshot
+    - url-to-pdf
+    - web-content
+about:
+  title: CaptureKit
+  description: Capture websites as PNG, JPEG, WebP or PDF, extract their content, or analyse them with AI.
+  icon: https://raw.githubusercontent.com/capturekitdev/capturekit-mcp/main/assets/icon-400.png
+source:
+  project: https://github.com/capturekitdev/capturekit-mcp
+run:
+  allowHosts:
+    - api.capturekit.dev:443
+config:
+  description: Configure your CaptureKit API key.
+  secrets:
+    - name: capturekit.api_key
+      env: CAPTUREKIT_API_KEY
+      example: YOUR_API_KEY
+      description: Required API key from https://app.capturekit.dev.
+      required: true
